@@ -1,0 +1,173 @@
+<div class="row">
+    <form id="myForm" ng-submit="okBtnClk()">
+        <table class="striped" style="text-align: center">
+            <thead>
+            <tr>
+                <td>Введите значения:</td>
+            </tr>
+            </thead>
+            <tr>
+                <td>X</td>
+                <td ng-repeat="i in x">
+                    <div class="input-field inline">
+                        <input id="X{{i}}" ng-model="X[i-1]" name="X{{i}}" type="number" class="validate" min="-999"
+                               max="999" step="0.001">
+                        <label for="X{{i}}" data-error="Необходимо ввести число" data-success="Верно">X{{i}}</label>
+                    </div>
+                </td>
+                <td>Сумма P:</td>
+            </tr>
+
+            <tr>
+                <td>P</td>
+                <td ng-repeat="i in p">
+                    <div class="input-field inline">
+                        <input id="P{{i}}" ng-model="P[i-1]" name="P{{i}}" type="number" class="validate"
+                               ng-change="change()" min="0" max="1" step="0.01">
+                        <label for="P{{i}}" data-error="Число должно быть дробным" data-success="Верно">P{{i}}</label>
+                    </div>
+                </td>
+                <td>{{pp}}</td>
+            </tr>
+        </table>
+
+        Введите N:
+        <div class="input-field inline">
+            <input id="N" ng-model="N" name="N" type="number" class="validate" min="0" max="100" step="1">
+            <label for="N" data-error="Необходимо ввести целое число" data-success="Верно">N</label>
+        </div>
+
+        <br/>
+        <button class="btn waves-effect waves-light" style="left: 90%" type="submit">Готово
+        </button>
+    </form>
+
+    <div ng-if="show">
+
+
+        <table class="striped" style="text-align: center">
+            <thead>
+            <tr>
+                <td>Случайные значения:</td>
+            </tr>
+            </thead>
+            <tr>
+                <td>N</td>
+                <td ng-repeat="i in n">
+                    <div class="input-field inline">
+                        <span>{{n[i-1]}}</span>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Z</td>
+                <td ng-repeat="i in n">
+                    <div class="input-field inline">
+                        {{z[i-1]}}
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <table class="striped" style="text-align: center">
+            <tr>
+                <td>&#916;</td>
+                <td ng-repeat="i in x">&#916;{{i}}</td>
+            </tr>
+            <tr>
+                <td>Промежутки</td>
+                <td ng-repeat="d in delta">{{d}}</td>
+            </tr>
+        </table>
+
+        <br/>
+
+        <table class="striped" style="text-align: center">
+            <tr>
+                <td>&#947;</td>
+                <td ng-repeat="i in n">
+                    <div class="input-field inline">
+                        <span>&#947;{{n[i-1]}}</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Значение</td>
+                <td ng-repeat="s in gamma track by $index">{{s}}</td>
+            </tr>
+        </table>
+
+
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+                    <div class="col s2" style="font-style: italic">
+                        M(x)= <!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+              <span class="black-text">
+                {{mx}}
+              </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+                    <div class="col s2" style="font-style: italic">
+                        D(x)= <!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+              <span class="black-text">
+                {{dxx}}
+              </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="striped" style="text-align: center">
+
+            <tr>
+                <td ng-repeat="s in ssds  track by $index">&#947;({{s.value}}) = {{s.count}}</td>
+            </tr>
+        </table>
+
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+                    <div class="col s2" style="font-style: italic">
+                        M(&#947;)= <!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+              <span class="black-text">
+                {{mgg}}
+              </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+                    <div class="col s2" style="font-style: italic">
+                        D(&#947;)= <!-- notice the "circle" class -->
+                    </div>
+                    <div class="col s10">
+              <span class="black-text">
+                {{dxgg}}
+              </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

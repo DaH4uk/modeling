@@ -1,0 +1,51 @@
+<div class="row">
+
+
+    <br/><br/>
+    <table class="striped" style="text-align: center">
+        <tr>
+            <td>N</td>
+            <td ng-repeat="i in N">{{i}}</td>
+        </tr>
+        <tr>
+            <td>Z</td>
+            <td ng-repeat="z in Z track by $index">{{z}}</td>
+        </tr>
+    </table>
+
+    <br/><br/>
+    <table class="striped" style="text-align: center">
+        <tr>
+            <td>X</td>
+            <td ng-repeat="i in X">{{i}}</td>
+        </tr>
+        <tr>
+            <td>m</td>
+            <td ng-repeat="z in XXX track by $index">{{z}}</td>
+        </tr>
+        <tr>
+            <td>m/n</td>
+            <td ng-repeat="m in mn track by $index">{{m}}</td>
+        </tr>
+    </table>
+    <br/><br/>
+    <div class="row">
+        <div class="col s4">
+            Mx: = {{lambda}}
+            <br/>
+            Dx: = {{lambda}}
+        </div>
+        <div class="col s4">
+            M*x: = {{MX}}
+            <br/>
+            D*x: = {{DX}}
+        </div>
+        <div class="col s4">
+            |M(X)-M*(x)| = {{MXrazn}}
+            <br/>
+            |D(X)-D*(x)| = {{DXrazn}}</div>
+    </div>
+    <br/><br/>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+</div>
